@@ -14,11 +14,16 @@ jobs:
         run: |
           curl -L -o Requirements.md https://liveconcordia-my.sharepoint.com/:x:/g/personal/pa_nir_live_concordia_ca/EQImy4AXJwxIqTWoYEDgQPEBBAM-BsF49jZzKyxsWFyljQ?e=nre07e&download=1
 
+      - name: Checkout wiki code
+        uses: actions/checkout@v2
+        with:
+          repository: ${{github.repository}}.wiki
+          path: wiki
+        
       - name: Push Markdown File to Wiki
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "GitHub Actions"
-          git clone https://github.com/Niravanaa/testrepo.wiki.git wiki
           cp Requirements.md wiki/
           cd wiki
           git add Requirements.md
