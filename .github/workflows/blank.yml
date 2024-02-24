@@ -1,0 +1,26 @@
+name: Push Markdown File to Wiki
+
+on:
+  workflow_dispatch:
+
+jobs:
+  push_to_wiki:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      
+      - name: Download Markdown File from OneDrive
+        run: |
+          curl -L -o markdown_file.md https://liveconcordia-my.sharepoint.com/:x:/g/personal/pa_nir_live_concordia_ca/EQImy4AXJwxIqTWoYEDgQPEBBAM-BsF49jZzKyxsWFyljQ?e=nre07e&download=1
+
+      - name: Push Markdown File to Wiki
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "GitHub Actions"
+          git clone https://github.com/${{ github.repository }}.wiki.git wiki
+          cp markdown_file.md wiki/
+          cd wiki
+          git add Requirements.md
+          git commit -m "Add Markdown file to wiki"
+          git push
