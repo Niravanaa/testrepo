@@ -12,7 +12,7 @@ jobs:
       
       - name: Download Markdown File from OneDrive
         run: |
-          wget -O Requirements.md "https://onedrive.live.com/download?resid=BBA8963FD3FCEEC5%2149296&authkey=!AGInDbGsG"
+          wget -O Requirements.md "https://www.dropbox.com/scl/fi/6ceupk7l9gupb0wuwchfp/Requirements.md?rlkey=ad4h9prwdx86u7qpmu1jqfyz5&dl=1"
 
       - name: Checkout wiki code
         uses: actions/checkout@v2
