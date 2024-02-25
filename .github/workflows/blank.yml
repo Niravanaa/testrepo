@@ -12,7 +12,7 @@ jobs:
       
       - name: Download Markdown File from OneDrive
         run: |
-          curl -L -o Requirements.md https://1drv.ms/u/s!AsXu_NM_lqi7g4EQYHU7moy9tHtyHA?e=u4tdl1&download=1
+          wget -O Requirements.md "https://1drv.ms/u/s!AsXu_NM_lqi7g4EQYHU7moy9tHtyHA?e=u4tdl1&download=1"
 
       - name: Checkout wiki code
         uses: actions/checkout@v2
