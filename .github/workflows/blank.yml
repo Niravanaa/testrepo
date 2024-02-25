@@ -1,7 +1,8 @@
 name: Push Markdown File to Wiki
 
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * *'
 
 jobs:
   push_to_wiki:
